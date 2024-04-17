@@ -4,7 +4,7 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContacts } from "../../redux/contactsOps";
 import toast from "react-hot-toast";
 
 const FeedbackSchema = Yup.object().shape({
@@ -25,23 +25,10 @@ const ContactForm = () => {
   };
 
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts.contacts);
 
-  const addContacts = (contact) => {
-    const isExist = contacts.some(
-      (item) => item.name === contact.name && item.number === contact.number
-    );
-    if (isExist) {
-      return toast.error("This book already exists!");
-    }
-    dispatch(addContact(contact));
-    toast.success("Book was added! 🔥");
-  };
-
-  const handleSubmit = (values, actions) => {
-    const newContact = { ...values, id: nanoid() };
-    addContacts(newContact);
-    actions.resetForm();
+  const handleSubmit = (data, options) => {
+    dispatch(addContacts(data));
+    options.resetForm();
   };
 
   return (
