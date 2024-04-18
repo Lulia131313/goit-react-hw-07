@@ -1,9 +1,8 @@
 import s from "./Contact.module.css";
-import { nanoid } from "nanoid";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addContacts } from "../../redux/contactsOps";
 import toast from "react-hot-toast";
 
