@@ -1,7 +1,7 @@
 .input {
   padding: 5px 15px;
   border-radius: 4px;
-  font-size: 1rem;
+  width: 230px;
 }
 .label {
   display: flex;
