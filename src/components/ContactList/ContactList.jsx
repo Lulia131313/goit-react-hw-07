@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Cont.module.css";
 import Contact from "./Contact/Contact";
-import { selectNameFilter } from "../../redux/filtersSlice";
-import { selectContacts, selectLoading } from "../../redux/contactsSlice";
+import { selectLoading } from "../../redux/selectors";
 import { useEffect } from "react";
 import { deleteContacts, fetchContacts } from "../../redux/contactsOps";
+import { selectFilteredContacts } from "../../redux/selectors";
 
 const ContactList = () => {
   const loading = useSelector(selectLoading);
+  const filteredData = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,20 +18,6 @@ const ContactList = () => {
   const handleDeleteContacts = (id) => {
     dispatch(deleteContacts(id));
   };
-
-  const contacts = useSelector(selectContacts);
-  const filteredContacts = useSelector(selectNameFilter);
-
-  const filterContacts = (contact) => {
-    const { name, number } = contact;
-    const searchText = filteredContacts.toLowerCase();
-    return (
-      name.toLowerCase().includes(searchText) ||
-      number.toLowerCase().includes(searchText)
-    );
-  };
-
-  const filteredData = contacts.filter(filterContacts);
 
   return (
     <ul className={s.contacts}>
@@ -45,5 +32,4 @@ const ContactList = () => {
     </ul>
   );
 };
-
 export default ContactList;

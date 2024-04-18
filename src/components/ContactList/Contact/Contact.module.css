@@ -1,6 +1,8 @@
 .contacts {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 .contact {
   display: flex;
@@ -38,4 +40,7 @@
 
 .icon {
   margin-right: 5px;
+}
+.number {
+  width: auto;
 }

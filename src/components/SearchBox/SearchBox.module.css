@@ -1,15 +1,15 @@
 .search {
-  margin: 30px;
+  margin: 15px;
   p {
     margin-bottom: 2px;
 
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 .search_input {
-  width: 420px;
+  width: 300px;
   padding: 5px 15px;
   border-radius: 4px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }

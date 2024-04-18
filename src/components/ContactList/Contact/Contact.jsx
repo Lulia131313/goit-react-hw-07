@@ -6,7 +6,7 @@ const Contact = ({ item, handleDeleteContacts }) => {
   const { id, name, number } = item;
   return (
     <li className={s.contact}>
-      <div>
+      <div className={s.number}>
         <p>
           <IoPerson className={s.icon} />
           {name}
